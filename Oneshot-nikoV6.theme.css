@@ -1,0 +1,269 @@
+/**
+ * @name OneShot - Niko (Glass)
+ * @author Scout_C7
+ * @version 5.0.0
+ * @description Full transparent/glass OneShot reskin. 
+ */
+
+:root {
+
+
+  /* 
+  For use with your own images:
+  Local file:  url("file:///C:/Users/you/Pictures/oneshot-bg.png")
+     Remote URL:  url("https://preview.redd.it/wip-oneshot-discord-theme-v0-i9r5mdlwp2mh1.jpeg?width=5065&format=pjpg&auto=webp&s=6110a63423dd9683e190cd7bb74dbf67f91a1536")
+     Both work the same way - just needs to be a direct link to the
+     image file itself, not the page it's hosted on. */
+
+  --os-bg-image: url("https://preview.redd.it/wip-oneshot-discord-theme-v0-i9r5mdlwp2mh1.jpeg?width=5065&format=pjpg&auto=webp&s=6110a63423dd9683e190cd7bb74dbf67f91a1536");
+
+  --os-purple-deep: #241536;
+  --os-purple-mid: #4a2350;
+  --os-magenta: #8c2f5c;
+  --os-magenta-bright: #b23a6b;
+  --os-cream: #f5e6d3;
+  --os-cream-dim: #e8c9b0;
+  --os-gold: #f4c542;
+  --os-gold-bright: #ffd966;
+  --os-blush: #e8788f;
+  --os-danger: #e05263;
+
+  /* Different opacity levels so panels layer nicely over the fixed background.
+     Lower alpha = more of the background shows through. */
+  --glass-strong: rgba(30, 15, 46, 0.55);   /* member list */
+  --glass-mid: rgba(36, 21, 54, 0.3);       /* toolbar */
+  --glass-light: rgba(50, 26, 64, 0.16);    /* chat scroller */
+  --glass-frosty: rgba(40, 20, 58, 0.22);   /* used only where a photo bg needs legibility help */
+  --glass-vivid: rgba(20, 10, 32, 0.1);     /* guild bar + channel list - barely-there tint so the
+                                                gradient itself stays crisp instead of turning muddy */
+  --glass-embed: rgba(20, 10, 32, 0.5);     /* embeds - kept more solid for text legibility */
+  --glass-blur: 12px;
+  --glass-blur-heavy: 20px;                 /* stronger blur for photo backgrounds */
+  --glass-blur-vivid: 3px;                  /* light blur - keeps gradient edges crisp, just softens icon edges */
+}
+
+/* ====================================================================
+   BASE RESET
+   ==================================================================== */
+html, body,
+#app-mount,
+.app_a3002d,
+.app__160d8,
+.layer__960e4 {
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+/* ====================================================================
+   FIXED BACKGROUND IMAGE LAYER
+   ==================================================================== */
+.bg__960e4 {
+  background-image: var(--os-bg-image) !important;
+  background-color: var(--os-purple-deep) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed !important;
+}
+
+/* ====================================================================
+   GUILD BAR (far-left server icon column + its rounded icon list)
+   ==================================================================== */
+.sidebar__5e434,
+.scroller_ef3116.stack_dbd263 {
+  background: linear-gradient(180deg, var(--os-blush) 0%, var(--os-magenta-bright) 45%, var(--os-purple-mid) 100%) !important;
+}
+.sidebarList__5e434 {
+  border-top-left-radius: 10px;
+  background: rgba(0, 0, 0, 0) !important;
+}
+.panels__5e434 {
+  background: linear-gradient(180deg, var(--os-magenta-bright) 0%, var(--os-purple-mid) 100%) !important;
+}
+
+/* ====================================================================
+   CHANNEL LIST
+   ==================================================================== */
+#channels {
+  background-color: var(--glass-vivid) !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.content_d125d2 {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Channel name legibility over a fully see-through panel - a subtle drop
+   shadow keeps text readable no matter how light/busy the image behind
+   it is, without needing an opaque background. */
+#channels [class*="link_"],
+#channels [class*="name_"] {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.85), 0 0 2px rgba(0, 0, 0, 0.6);
+}
+
+/* ====================================================================
+   TITLE BAR (window controls row - minimize/maximize/close)
+   ==================================================================== */
+.bar_c38106 {
+  background: linear-gradient(90deg, var(--os-blush) 0%, var(--os-magenta-bright) 50%, var(--os-purple-mid) 100%) !important;
+}
+
+/* Bottom-left user panel - confirmed via your DevTools inspection */
+.container__37e49 {
+  background: var(--glass-strong) !important;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* DM / private channels list (when not inside a server) */
+.privateChannels_e6b769 {
+  background: var(--glass-mid) !important;
+}
+
+/* ====================================================================
+   CHANNEL HEADER BAR (channel name / search / pins 
+   ==================================================================== */
+[aria-label="Channel header"] {
+  background-color: var(--glass-mid) !important;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* ====================================================================
+   MAIN CHAT AREA
+   ==================================================================== */
+.chat_f75fb0,
+.chatContent_f75fb0,
+.scroller_f35c3c {
+  background: var(--glass-light) !important;
+}
+
+/* ====================================================================
+   MESSAGE INPUT BOX
+   ==================================================================== */
+.channelTextArea__74017 {
+  background-color: var(--glass-frosty) !important;
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  box-shadow: 0 0 0 2px rgba(244, 197, 66, 0.25) !important;
+  border-radius: 10px;
+  overflow: hidden; /* keeps the blur/rounded corners clean */
+}
+/* Nested children (scrollable wrapper, attachment area, etc.) tend to paint
+   their own solid fill on top of the parent - force those transparent too */
+.channelTextArea__74017 * {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+/* The actual editable text field needs its own background reset -
+   catches cases where the above wildcard gets overridden by something
+   more specific */
+.channelTextArea__74017 [class*="scrollableContainer"],
+.channelTextArea__74017 [contenteditable="true"],
+.channelTextArea__74017 [role="textbox"] {
+  background: rgba(0, 0, 0, 0) !important;
+}
+
+/* Wildcard fallback - in case .channelTextArea__74017 isn't the exact hash
+   on your build. Catches any classname containing "channelTextArea" and
+   forces it + everything inside it transparent/frosty. */
+[class*="channelTextArea"],
+[class*="channelTextArea"] * {
+  background: var(--glass-frosty) !important;
+  background-color: var(--glass-frosty) !important;
+}
+[class*="channelTextArea"] {
+  backdrop-filter: blur(var(--glass-blur-heavy)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy)) !important;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ====================================================================
+   CHANNEL ROW HOVER EFFECTS
+   ==================================================================== */
+.wrapper__2ea32 {
+  position: relative;
+}
+.link__2ea32 {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+.link__2ea32::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--os-blush) 0%, var(--os-magenta-bright) 100%);
+  opacity: 0.35;
+  transform: translateX(-105%);
+  transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  z-index: -1;
+  pointer-events: none;
+}
+.wrapper__2ea32:hover .link__2ea32::after {
+  transform: translateX(0);
+}
+
+/* ====================================================================
+   EMBEDS - frosted glass cards
+   ==================================================================== */
+.embedFull__623de,
+.container__60fa3 {
+  background: var(--glass-embed) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-left: 3px solid var(--os-gold) !important;
+  border-radius: 6px;
+}
+
+/* ====================================================================
+   MEMBERS LIST (right sidebar)
+   ==================================================================== */
+.membersWrap_c8ffbb,
+.container_c8ffbb {
+  background: rgba(0, 0, 0, 0) !important;
+}
+.members_c8ffbb {
+  background: var(--glass-strong) !important;
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+}
+
+/* ====================================================================
+   SEARCH RESULTS PANEL
+   ==================================================================== */
+.searchResultsWrap_a98f3b {
+  background: var(--glass-mid) !important;
+}
+
+/* ====================================================================
+   TEXT / ACCENT COLORS
+   ==================================================================== */
+.theme-dark {
+  --text-normal: var(--os-cream);
+  --text-muted: var(--os-cream-dim);
+  --text-link: var(--os-gold-bright);
+  --header-primary: var(--os-cream);
+  --header-secondary: var(--os-cream-dim);
+  --interactive-normal: var(--os-cream-dim);
+  --interactive-hover: var(--os-cream);
+  --interactive-active: var(--os-gold);
+  --channels-default: var(--os-cream-dim);
+  --brand-experiment: var(--os-gold);
+}
+
+[class*="username_"] {
+  color: var(--os-gold-bright) !important;
+}
+
+[class*="colorBrand"] {
+  background-color: var(--os-gold) !important;
+  color: var(--os-purple-deep) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--os-blush) !important;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
