@@ -22,5 +22,5 @@ Make sure you have a Discord client mod installed that supports custom CSS theme
 1. Download or copy `OneShot-Niko-Glass.theme.css`.
 2. Open Discord and go to **User Settings** -> **Themes** (under *BetterDiscord*).
 3. Click **Open Theme Folder**.
-4. Move `OneShot-Niko-Glass.theme.css` into the folder.
+4. Move `OneShot-Niko.theme.css` into the folder.
 5. Toggle the theme **ON** in Discord.
