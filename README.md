@@ -19,7 +19,7 @@ A lightweight, frosted-glass BetterDiscord theme inspired by the warm, atmospher
 Make sure you have a Discord client mod installed that supports custom CSS themes (such as [BetterDiscord](https://betterdiscord.app/), [Vencord](https://vencord.dev/), or [Replugged](https://replugged.dev/)).
 
 ### BetterDiscord
-1. Download or copy `OneShot-Niko-Glass.theme.css`.
+1. Download or copy any version of `OneShot-Niko.theme.css`.
 2. Open Discord and go to **User Settings** -> **Themes** (under *BetterDiscord*).
 3. Click **Open Theme Folder**.
 4. Move `OneShot-Niko.theme.css` into the folder.
