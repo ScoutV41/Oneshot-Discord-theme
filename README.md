@@ -24,3 +24,12 @@ Make sure you have a Discord client mod installed that supports custom CSS theme
 3. Click **Open Theme Folder**.
 4. Move `OneShot-Niko.theme.css` into the folder.
 5. Toggle the theme **ON** in Discord.
+
+### For the JS plugin
+1. Download or copy `OneshotAdaptiveColors.plugin.js`
+2. Open discord and go to the plugins folder (directly above or under **Themes**)
+3. Click **Open Plugin folder**
+4. Move `OneshotAdaptiveColors.plugin.js` into the folder
+5. Toggle the plugin **ON** in discord.
+6. Click the settings/gear button and isnert link (Link for current BG:  [https://preview.redd.it/wip-oneshot-discord-theme-v0-i9r5mdlwp2mh1.jpeg?width=5065&format=pjpg&auto=webp&s=6110a63423dd9683e190cd7bb74dbf67f91a1536](https://preview.redd.it/wip-oneshot-discord-theme-v0-i9r5mdlwp2mh1.jpeg?width=5065&format=pjpg&auto=webp&s=6110a63423dd9683e190cd7bb74dbf67f91a1536) )
+  
